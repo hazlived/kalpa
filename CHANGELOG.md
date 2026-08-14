@@ -5,6 +5,14 @@ All notable changes to the KALPA framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-08-14
+
+### Added
+- **Native AFL++/libFuzzer C Harness Generator**: Built [`kalpa/dynamic_analysis/c_harness_generator.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dynamic_analysis/c_harness_generator.py) for auto-synthesizing `LLVMFuzzerTestOneInput` entrypoints with ASan memory oracles.
+- **CI/CD Security Contract Exporter**: Added [`kalpa/contract_compiler/cicd_exporter.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/contract_compiler/cicd_exporter.py) to export ready-to-commit GitHub Actions workflows (`.github/workflows/kalpa_contracts.yml`).
+- **CLI `--export-cicd` Flag**: Integrated workflow export option into `run_kalpa.py`.
+- **Phase 9 Unit Tests**: Expanded test suite to **10/10 tests OK** in `tests/test_phase9.py`.
+
 ## [1.5.0] - 2026-08-14
 
 ### Refactored & Enhanced

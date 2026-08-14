@@ -65,6 +65,12 @@ def main():
         help="Launch the interactive KALPA Defense Operations Web Dashboard (FastAPI server on port 8000)"
     )
 
+    parser.add_argument(
+        "--export-cicd",
+        action="store_true",
+        help="Export GitHub Actions CI/CD Security Contract workflow (.github/workflows/kalpa_contracts.yml)"
+    )
+
     args = parser.parse_args()
 
     if args.dashboard:

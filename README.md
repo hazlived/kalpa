@@ -91,15 +91,13 @@ To run KALPA with a 100% offline local AI model in classified defense networks:
 python run_kalpa.py --target targets/vulnerable_service --provider ollama --ollama-host http://localhost:11434 --model deepseek-coder
 ```
 
-### Interactive Defense Operations Web Dashboard
+### CI/CD Security Contract Exporter
 
-Launch the FastAPI web dashboard on `http://127.0.0.1:8000`:
+Export ready-to-commit GitHub Actions continuous integration workflows (`.github/workflows/kalpa_contracts.yml`) to enforce non-regression on push:
 
 ```bash
-python run_kalpa.py --dashboard
+python run_kalpa.py --target targets/vulnerable_service --export-cicd
 ```
-
-Features real-time status monitoring, interactive Causal Graph SVG rendering, target microservice execution triggers, side-by-side patch diff inspection, and executable security contract browsing.
 
 ### Options & Flags
 
