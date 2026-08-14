@@ -76,19 +76,27 @@ Defense and national security software runs in ultra-high-stakes environments wh
 
 ## 🚀 Quick Start & Usage
 
-### Single-Command Execution
+### Docker Execution (Air-Gapped Container)
 
-To execute KALPA on any target repository:
+```bash
+docker build -t kalpa-crs .
+docker run --rm -v $(pwd)/evidence_bundles:/app/evidence_bundles kalpa-crs --target targets/vulnerable_service
+```
+
+### Local CLI Execution
+
+To execute KALPA on any target repository (Python web app or C/C++ service):
 
 ```bash
 python run_kalpa.py --target targets/vulnerable_service --output-dir evidence_bundles
 ```
 
-Or via shell wrapper:
+### AI Kavach Benchmark & Evaluation Suite
+
+Execute KALPA across all target codebases to compute AI Kavach metrics (Patch Success Rate, MTTR, Token usage):
 
 ```bash
-chmod +x run_kalpa.sh
-./run_kalpa.sh targets/vulnerable_service evidence_bundles
+python eval_kalpa.py --targets-dir targets --output eval_report.json
 ```
 
 ### Options & Flags

@@ -5,6 +5,13 @@ All notable changes to the KALPA framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-08-14
+
+### Added
+- **Docker Containerization**: Added multi-stage [`Dockerfile`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/Dockerfile) and [`docker-compose.yml`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/docker-compose.yml) for single-command air-gapped deployment in defense environments.
+- **Native C/C++ Target Support**: Added C/C++ benchmark target (`targets/vulnerable_cpp_service`), static buffer overflow/format string analyzer rule additions, and C/C++ patch synthesis logic (`strncpy`, `snprintf`).
+- **AI Kavach Evaluation Suite (`eval_kalpa.py`)**: Built automated evaluation harness that runs KALPA across multiple targets and outputs AI Kavach KPIs: Patch Success Rate (PSR), MTTR, and resource utilization metrics.
+
 ## [1.0.0] - 2026-08-14
 
 ### Added

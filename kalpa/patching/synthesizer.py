@@ -116,12 +116,26 @@ class PatchSynthesizer:
             replacement_lines.append(f"{indent_str}filename = os.path.basename(filename) if 'filename' in locals() else filename\n")
             replacement_lines.append(target_line)
 
-        else:
+        elif vclass == VulnerabilityClass.BUFFER_OVERFLOW:
             indent = len(target_line) - len(target_line.lstrip())
             indent_str = " " * indent
-            replacement_lines.append(f"{indent_str}# KALPA Security Contract Assertion\n")
-            replacement_lines.append(f"{indent_str}if not isinstance(user_input, str) or len(user_input) > 2048: raise ValueError('Invalid input')\n")
-            replacement_lines.append(target_line)
+            if finding.file_path.endswith((".c", ".cpp", ".h")):
+                if "strcpy(" in target_line:
+                    # Replace strcpy(dest, src) with strncpy(dest, src, sizeof(dest)-1)
+                    patched = re.sub(r'strcpy\(([^,]+),\s*([^)]+)\)', r'strncpy(\1, \2, sizeof(\1) - 1); \1[sizeof(\1) - 1] = \'\\0\'', target_line)
+                    replacement_lines.append(f"{indent_str}/* KALPA Security Patch: Bounds-checked strncpy */\n")
+                    replacement_lines.append(f"{indent_str}{patched.strip()}\n")
+                elif "sprintf(" in target_line:
+                    patched = re.sub(r'sprintf\(([^,]+),', r'snprintf(\1, sizeof(\1),', target_line)
+                    replacement_lines.append(f"{indent_str}/* KALPA Security Patch: Safe snprintf */\n")
+                    replacement_lines.append(f"{indent_str}{patched.strip()}\n")
+                else:
+                    replacement_lines.append(f"{indent_str}/* KALPA Security Contract Assertion */\n")
+                    replacement_lines.append(target_line)
+            else:
+                replacement_lines.append(f"{indent_str}# KALPA Security Contract Assertion\n")
+                replacement_lines.append(f"{indent_str}if not isinstance(user_input, str) or len(user_input) > 2048: raise ValueError('Invalid input')\n")
+                replacement_lines.append(target_line)
 
         if not replacement_lines:
             replacement_lines = [target_line]

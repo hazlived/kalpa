@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  kalpa-crs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kalpa_crs_container
+    volumes:
+      - ./evidence_bundles:/app/evidence_bundles
+      - ./targets:/app/targets
+    environment:
+      - LLM_PROVIDER=rule_based
+      - LLM_MODEL=gpt-4o
+    command: ["--target", "targets/vulnerable_service", "--output-dir", "evidence_bundles"]
