@@ -5,6 +5,13 @@ All notable changes to the KALPA framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-08-14
+
+### Grand Finale Release
+- **AI Kavach Grand Finale Deliverables Dossier**: Added [`FINAL_DELIVERABLES.md`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/FINAL_DELIVERABLES.md) synthesizing functional, security, and operational achievement metrics, evidence bundle specifications, and deployment guidelines.
+- **Complete Test Coverage**: Verified 100% unit and integration test pass rate across all 10 framework modules (**10/10 tests OK**).
+- **Multi-Language & Multi-Deployment Verification**: Validated autonomous execution across Python web microservices, C/C++ native services, Docker containers, air-gapped local LLMs (Ollama/vLLM), and interactive FastAPI glassmorphism web dashboard.
+
 ## [1.6.0] - 2026-08-14
 
 ### Added

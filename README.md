@@ -1,10 +1,12 @@
 # KALPA: Causal Cyber Reasoning System for AI Kavach
 
-[![AI Kavach CRS](https://img.shields.io/badge/AI_Kavach-Defense_CRS-blue.svg)](https://github.com/kalpa-crs)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-green.svg)](https://www.python.org/)
+[![AI Kavach CRS](https://img.shields.io/badge/AI_Kavach-Grand_Finale-blue.svg)](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/FINAL_DELIVERABLES.md)
+[![Version 2.0.0](https://img.shields.io/badge/version-v2.0.0_Final-emerald.svg)](CHANGELOG.md)
 [![License: Defense Grade](https://img.shields.io/badge/license-Defense_Ready-red.svg)](#)
 
 > **Causal Cyber Reasoning System (CRS)** for autonomous vulnerability discovery, causal root-cause reconstruction, patch synthesis, security contract compilation, and self-adversarial validation for mission-critical software in Indian Armed Forces operational environments.
+
+See the complete [**AI Kavach Grand Finale Technical Deliverables & Audit Dossier**](FINAL_DELIVERABLES.md) for architectural details, evaluation benchmarks, evidence bundle specifications, and deployment guides.
 
 ---
 
