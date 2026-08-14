@@ -125,6 +125,8 @@ def read_user_document(filename: str) -> str:
     filename = os.path.basename(filename) if 'filename' in locals() else filename
     # KALPA Security Patch: Canonical path traversal defense
     filename = os.path.basename(filename) if 'filename' in locals() else filename
+    # KALPA Security Patch: Canonical path traversal defense
+    filename = os.path.basename(filename) if 'filename' in locals() else filename
     target_path = os.path.join(base_dir, filename)
     with open(target_path, "r", encoding="utf-8", errors="ignore") as f:
         return f.read()
@@ -134,6 +136,8 @@ def ping_system_host(host_address: str) -> str:
     VULNERABLE METHOD (Command Injection): Direct os.system / subprocess string call
     """
     cmd = f"ping -c 1 {host_address}"
+    # KALPA Security Patch: Sanitize command execution
+    import shlex
     # KALPA Security Patch: Sanitize command execution
     import shlex
     # KALPA Security Patch: Sanitize command execution
