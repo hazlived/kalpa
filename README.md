@@ -83,12 +83,12 @@ docker build -t kalpa-crs .
 docker run --rm -v $(pwd)/evidence_bundles:/app/evidence_bundles kalpa-crs --target targets/vulnerable_service
 ```
 
-### Local CLI Execution
+### Local Air-Gapped Execution (Ollama / vLLM)
 
-To execute KALPA on any target repository (Python web app or C/C++ service):
+To run KALPA with a 100% offline local AI model in classified defense networks:
 
 ```bash
-python run_kalpa.py --target targets/vulnerable_service --output-dir evidence_bundles
+python run_kalpa.py --target targets/vulnerable_service --provider ollama --ollama-host http://localhost:11434 --model deepseek-coder
 ```
 
 ### Interactive Defense Operations Web Dashboard

@@ -38,9 +38,19 @@ def main():
     )
     parser.add_argument(
         "--provider",
-        choices=["auto", "openai", "anthropic", "gemini", "rule_based"],
+        choices=["auto", "openai", "anthropic", "gemini", "ollama", "vllm", "rule_based"],
         default="auto",
         help="LLM provider mode for Causal Reasoning Engine"
+    )
+    parser.add_argument(
+        "--ollama-host",
+        default="http://localhost:11434",
+        help="Ollama or local vLLM endpoint URL (default: http://localhost:11434)"
+    )
+    parser.add_argument(
+        "--model",
+        default="deepseek-coder",
+        help="Model name for local or API LLM reasoning engine (default: deepseek-coder)"
     )
     parser.add_argument(
         "--max-fuzz-time",

@@ -5,6 +5,14 @@ All notable changes to the KALPA framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-08-14
+
+### Added
+- **Native Local LLM Integration**: Added [`kalpa/causal_engine/local_provider.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/causal_engine/local_provider.py) supporting Ollama and vLLM local endpoints with zero external network connectivity.
+- **Air-Gapped Provider Auto-Detection**: Integrated automatic local model discovery and fallback in `CausalReasoner`.
+- **CLI Local Model Flags**: Added `--ollama-host` and `--model` CLI arguments to `run_kalpa.py`.
+- **Local Provider Unit Tests**: Added unit test coverage in `tests/test_local_provider.py` (**8/8 tests OK**).
+
 ## [1.2.0] - 2026-08-14
 
 ### Added

@@ -9,6 +9,7 @@ from kalpa.models import (
     CausalNode, CandidateIntervention, VulnerabilityClass, Severity
 )
 from kalpa.causal_engine.prompts import SYSTEM_CAUSAL_PROMPT, USER_CAUSAL_REASONING_PROMPT
+from kalpa.causal_engine.local_provider import LocalLLMProvider
 
 class CausalReasoner:
     """
@@ -19,6 +20,10 @@ class CausalReasoner:
 
     def __init__(self, config: KalpaConfig):
         self.config = config
+        self.local_provider = LocalLLMProvider(
+            endpoint=config.ollama_endpoint,
+            model_name=config.local_model_name
+        )
 
     def analyze(self, finding: VulnerabilityFinding, code_slice: str, pov: POVPayload) -> CausalExplanation:
         """
@@ -27,8 +32,31 @@ class CausalReasoner:
         """
         self.config.budget.llm_calls_made += 1
         
-        # If API key is present and provider is active, query LLM
-        if self.config.llm_api_key and self.config.llm_provider != "rule_based":
+        # 1. Local Air-Gapped LLM Mode (Ollama / vLLM)
+        if self.config.llm_provider in ("ollama", "vllm", "local") or (self.config.llm_provider == "auto" and self.local_provider.is_available()):
+            try:
+                prompt = USER_CAUSAL_REASONING_PROMPT.format(
+                    finding_id=finding.id,
+                    v_class=finding.vulnerability_class.value,
+                    severity=finding.severity.value,
+                    file_path=finding.file_path,
+                    line_number=finding.line_number,
+                    function_name=finding.function_name,
+                    description=finding.description,
+                    cwe=finding.cve_or_cwe,
+                    code_slice=code_slice,
+                    pov_payload=pov.payload,
+                    crash_trace=pov.crash_trace
+                )
+                res = self.local_provider.query(SYSTEM_CAUSAL_PROMPT, prompt)
+                if res:
+                    return self._parse_llm_json(finding, res)
+            except Exception as e:
+                if self.config.verbose:
+                    print(f"[KALPA-LOCAL-LLM] Note: Local provider query failed: {e}")
+
+        # 2. Remote API Query (OpenAI / Gemini)
+        if self.config.llm_api_key and self.config.llm_provider not in ("rule_based", "ollama", "vllm"):
             try:
                 llm_response = self._query_llm_api(finding, code_slice, pov)
                 if llm_response:
@@ -37,7 +65,7 @@ class CausalReasoner:
                 if self.config.verbose:
                     print(f"[KALPA-LLM] Note: API query fallback to deterministic engine: {e}")
 
-        # Deterministic / Offline Causal Cyber Reasoning Engine
+        # 3. Deterministic / Offline Causal Cyber Reasoning Engine
         return self._rule_based_causal_reasoning(finding, code_slice, pov)
 
     def _query_llm_api(self, finding: VulnerabilityFinding, code_slice: str, pov: POVPayload) -> Optional[str]:

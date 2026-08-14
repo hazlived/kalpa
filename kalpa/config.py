@@ -16,9 +16,11 @@ class ResourceBudget:
 class KalpaConfig:
     project_root: str = "."
     output_dir: str = "evidence_bundles"
-    llm_provider: str = "auto"  # 'openai', 'anthropic', 'gemini', or 'local' / 'rule_based'
+    llm_provider: str = "auto"  # 'openai', 'anthropic', 'gemini', 'ollama', 'vllm', or 'rule_based'
     llm_api_key: Optional[str] = field(default_factory=lambda: os.getenv("LLM_API_KEY", os.getenv("OPENAI_API_KEY")))
     llm_model: str = os.getenv("LLM_MODEL", "gpt-4o")
+    ollama_endpoint: str = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+    local_model_name: str = os.getenv("LOCAL_MODEL", "deepseek-coder")
     budget: ResourceBudget = field(default_factory=ResourceBudget)
     enable_sanitizers: bool = True
     verbose: bool = True
