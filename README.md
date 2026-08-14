@@ -91,13 +91,15 @@ To execute KALPA on any target repository (Python web app or C/C++ service):
 python run_kalpa.py --target targets/vulnerable_service --output-dir evidence_bundles
 ```
 
-### AI Kavach Benchmark & Evaluation Suite
+### Interactive Defense Operations Web Dashboard
 
-Execute KALPA across all target codebases to compute AI Kavach metrics (Patch Success Rate, MTTR, Token usage):
+Launch the FastAPI web dashboard on `http://127.0.0.1:8000`:
 
 ```bash
-python eval_kalpa.py --targets-dir targets --output eval_report.json
+python run_kalpa.py --dashboard
 ```
+
+Features real-time status monitoring, interactive Causal Graph SVG rendering, target microservice execution triggers, side-by-side patch diff inspection, and executable security contract browsing.
 
 ### Options & Flags
 

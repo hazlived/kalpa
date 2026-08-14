@@ -49,7 +49,22 @@ def main():
         help="Maximum fuzzing duration budget per vulnerability in seconds"
     )
 
+    parser.add_argument(
+        "--dashboard",
+        action="store_true",
+        help="Launch the interactive KALPA Defense Operations Web Dashboard (FastAPI server on port 8000)"
+    )
+
     args = parser.parse_args()
+
+    if args.dashboard:
+        import uvicorn
+        print("============================================================")
+        print(" Launching KALPA Defense Operations Web Dashboard...")
+        print(" URL: http://127.0.0.1:8000")
+        print("============================================================")
+        uvicorn.run("kalpa.dashboard.app:app", host="127.0.0.1", port=8000, reload=False)
+        sys.exit(0)
 
     target_path = os.path.abspath(args.target)
     if not os.path.exists(target_path):

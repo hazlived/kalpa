@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KALPA - AI Kavach Cyber Reasoning System Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">🛡️</div>
+        <div class="brand-text">
+          <h2>KALPA</h2>
+          <span class="badge badge-defense">AI KAVACH CRS</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#overview" class="nav-item active" id="nav-overview">
+          <span class="nav-icon">📊</span> Command Overview
+        </a>
+        <a href="#causal-graph" class="nav-item" id="nav-causal">
+          <span class="nav-icon">🕸️</span> Causal Reasoning Graph
+        </a>
+        <a href="#evidence" class="nav-item" id="nav-bundles">
+          <span class="nav-icon">📑</span> Evidence Bundles
+        </a>
+        <a href="#metrics" class="nav-item" id="nav-metrics">
+          <span class="nav-icon">⚡</span> Benchmark KPIs
+        </a>
+      </nav>
+
+      <div class="target-trigger-card">
+        <h3>Autonomous CRS Run</h3>
+        <label for="target-select">Select Target Microservice:</label>
+        <select id="target-select" class="form-control">
+          <option value="vulnerable_service">vulnerable_service (Python)</option>
+          <option value="vulnerable_cpp_service">vulnerable_cpp_service (C/C++)</option>
+        </select>
+        <button id="btn-run-crs" class="btn btn-primary btn-block">
+          <span id="run-spinner" class="spinner hidden"></span>
+          Execute Autonomous Loop
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="header-title">
+          <h1 id="page-title">Defense Operations & Causal Reasoning</h1>
+          <p class="subtitle">Autonomous Vulnerability Intake $\to$ Causal Reasoning $\to$ Security Contract Synthesis</p>
+        </div>
+        <div class="header-status">
+          <div class="status-indicator">
+            <span class="status-dot status-idle" id="status-dot"></span>
+            <span id="status-text" class="status-label">SYSTEM IDLE</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- KPI Summary Row -->
+      <section class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Vulnerabilities Found</span>
+            <span class="kpi-icon icon-cyan">🔍</span>
+          </div>
+          <div class="kpi-value" id="kpi-found">6</div>
+          <div class="kpi-subtext">Discovered across targets</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Successful Patches</span>
+            <span class="kpi-icon icon-emerald">✅</span>
+          </div>
+          <div class="kpi-value" id="kpi-fixed">4</div>
+          <div class="kpi-subtext">Verified with zero regression</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Patch Success Rate (PSR)</span>
+            <span class="kpi-icon icon-purple">🎯</span>
+          </div>
+          <div class="kpi-value" id="kpi-psr">66.7%</div>
+          <div class="kpi-subtext">Self-adversarial validation</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">Mean Time to Repair</span>
+            <span class="kpi-icon icon-amber">⏱️</span>
+          </div>
+          <div class="kpi-value" id="kpi-mttr">2.77s</div>
+          <div class="kpi-subtext">Intake to validated patch</div>
+        </div>
+      </section>
+
+      <!-- Causal Graph & Bundle Detail View -->
+      <section class="content-grid">
+        <!-- Interactive Causal Graph Container -->
+        <div class="glass-card graph-section">
+          <div class="card-header">
+            <h3>🕸️ Interactive Causal Reasoning Visualizer</h3>
+            <span class="badge badge-info" id="current-bundle-id">Select a vulnerability bundle</span>
+          </div>
+          <div class="card-body">
+            <div id="causal-graph-container" class="graph-viewport">
+              <div class="empty-state">
+                <span class="empty-icon">💡</span>
+                <p>Click on any Evidence Bundle below to visualize its Causal Reasoning Graph.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-time Activity Log -->
+        <div class="glass-card log-section">
+          <div class="card-header">
+            <h3>📜 CRS Execution Log Feed</h3>
+            <span class="badge badge-live">LIVE</span>
+          </div>
+          <div class="card-body">
+            <div class="terminal-container" id="terminal-log">
+              <div class="log-line text-dim">[SYSTEM] KALPA CRS Defense Dashboard Initialized.</div>
+              <div class="log-line text-cyan">[INTAKE] Ready to ingest target codebases and SARIF reports.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Evidence Bundles Table -->
+      <section class="glass-card table-section">
+        <div class="card-header">
+          <h3>📑 Evidence Bundles & Executable Security Contracts</h3>
+          <button id="btn-refresh-bundles" class="btn btn-secondary btn-sm">Refresh List</button>
+        </div>
+        <div class="card-body">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Vulnerability ID</th>
+                <th>Target Service</th>
+                <th>Class</th>
+                <th>Root Cause Analysis</th>
+                <th>POV Payload</th>
+                <th>Patch Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="bundles-tbody">
+              <!-- Dynamically Populated -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Evidence Bundle Detail Modal -->
+  <div id="bundle-modal" class="modal hidden">
+    <div class="modal-content glass-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Evidence Bundle Detail</h3>
+        <button class="modal-close" id="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body-content">
+        <!-- Rendered Code Diff & Contracts -->
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

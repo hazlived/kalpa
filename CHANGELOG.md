@@ -5,6 +5,13 @@ All notable changes to the KALPA framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-08-14
+
+### Added
+- **Interactive Defense Operations Web Dashboard**: Built FastAPI backend (`kalpa/dashboard/app.py`) and Vanilla CSS/JS frontend with dark glassmorphism theme (`index.html`, `style.css`, `app.js`).
+- **Interactive Causal Graph Visualizer**: Renders SVG nodes connecting taint sources, control flow transitions, and root cause sinks.
+- **CLI Dashboard Launcher**: Added `--dashboard` flag to `run_kalpa.py` to start web dashboard on `http://127.0.0.1:8000`.
+
 ## [1.1.0] - 2026-08-14
 
 ### Added
