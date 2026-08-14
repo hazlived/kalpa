@@ -1,6 +1,6 @@
 # KALPA: Autonomous Causal Cyber Reasoning System (CRS)
 
-[![PyPI Version](https://img.shields.io/badge/pypi-v2.0.1-10b981.svg)](https://pypi.org/project/kalpa-crs/)
+[![PyPI Version](https://img.shields.io/badge/pypi-v2.0.2-10b981.svg)](https://pypi.org/project/kalpa-crs/)
 [![Python Version](https://img.shields.io/badge/python-3.9+-38bdf8.svg)](https://www.python.org/)
 [![Build Status](https://img.shields.io/badge/build-passing-10b981.svg)](#)
 [![Docker Ready](https://img.shields.io/badge/docker-containerized-ea580c.svg)](Dockerfile)
