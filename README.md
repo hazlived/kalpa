@@ -1,57 +1,56 @@
-# KALPA: Causal Cyber Reasoning System for AI Kavach
+# KALPA: Autonomous Causal Cyber Reasoning System (CRS)
 
-[![AI Kavach CRS](https://img.shields.io/badge/AI_Kavach-Grand_Finale_Deliverable-blue.svg)](FINAL_DELIVERABLES.md)
-[![Version 2.0.0](https://img.shields.io/badge/version-v2.0.0_Final-10b981.svg)](CHANGELOG.md)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-38bdf8.svg)](https://www.python.org/)
+[![PyPI version](https://img.shields.io/pypi/v/kalpa-crs.svg?color=10b981)](https://pypi.org/project/kalpa-crs/)
+[![Python versions](https://img.shields.io/pypi/pyversions/kalpa-crs.svg?color=38bdf8)](https://pypi.org/project/kalpa-crs/)
+[![Build Status](https://img.shields.io/badge/build-passing-10b981.svg)](#)
 [![Docker Ready](https://img.shields.io/badge/docker-containerized-ea580c.svg)](Dockerfile)
-[![License: Defense Grade](https://img.shields.io/badge/license-Defense_Ready-be123c.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-> **KALPA** is an autonomous **Causal Cyber Reasoning System (CRS)** designed to discover vulnerabilities, reconstruct causal root causes, synthesize minimal code patches, compile durable security contracts, and prove fix robustness through a self-adversarial repair loop without human intervention. Built for mission-critical defense software in the simulated Indian Armed Forces operational environments (**AI Kavach**).
+> **KALPA** is an enterprise-grade autonomous **Cyber Reasoning System (CRS)** engineered to discover zero-day vulnerabilities, reconstruct causal root causes, synthesize minimal code remediations, compile executable security contracts, and prove fix robustness through a self-adversarial repair harness without human intervention.
 
 ---
 
 ## 📑 Table of Contents
-1. [Executive Overview & Motivation](#-executive-overview--motivation)
-2. [Causal Cyber Reasoning vs. Symptom Patching](#-causal-cyber-reasoning-vs-symptom-patching)
-3. [System Architecture Overview](#-system-architecture-overview)
-4. [Key System Components & File Directory](#-key-system-components--file-directory)
-5. [Feature Matrix & Core Capabilities](#-feature-matrix--core-capabilities)
-6. [Installation & Setup](#-installation--setup)
-7. [Comprehensive Usage Manual](#-comprehensive-usage-manual)
-   - [1. Single-Command CLI Execution](#1-single-command-cli-execution)
+1. [Executive Overview](#-executive-overview)
+2. [Causal Cyber Reasoning Paradigm](#-causal-cyber-reasoning-paradigm)
+3. [System Architecture & Engineering Loop](#-system-architecture--engineering-loop)
+4. [Core Modules & Component Directory](#-core-modules--component-directory)
+5. [Feature Matrix & Technical Capabilities](#-feature-matrix--technical-capabilities)
+6. [Installation](#-installation)
+7. [Comprehensive Usage Guide](#-comprehensive-usage-guide)
+   - [1. Command Line Interface (CLI)](#1-command-line-interface-cli)
    - [2. Air-Gapped Local LLM Execution (Ollama / vLLM)](#2-air-gapped-local-llm-execution-ollama--vllm)
    - [3. Interactive Defense Operations Web Dashboard](#3-interactive-defense-operations-web-dashboard)
-   - [4. Docker Container Deployment](#4-docker-container-deployment)
-   - [5. AI Kavach Evaluation Suite](#5-ai-kavach-evaluation-suite)
-   - [6. CI/CD Security Contract Exporter](#6-cicd-security-contract-exporter)
-8. [Configuration & Environment Variables](#-configuration--environment-variables)
+   - [4. Containerized Docker Deployment](#4-containerized-docker-deployment)
+   - [5. CI/CD Security Contract Exporter](#5-cicd-security-contract-exporter)
+   - [6. Benchmark & Evaluation Suite](#6-benchmark--evaluation-suite)
+8. [Configuration Reference](#-configuration-reference)
 9. [Auditable Evidence Bundle Specification](#-auditable-evidence-bundle-specification)
-10. [Benchmark Results & Performance Indicators](#-benchmark-results--performance-indicators)
-11. [Testing & Verification](#-testing--verification)
-12. [Project Documentation & Audit Dossier](#-project-documentation--audit-dossier)
+10. [Verification & Testing](#-verification--testing)
+11. [License](#-license)
 
 ---
 
-## 🏛️ Executive Overview & Motivation
+## 🏛️ Executive Overview
 
-Defense and national security software operates under extreme reliability and security constraints. Vulnerabilities in military microservices or embedded software can translate directly into mission failure, operational compromise, or loss of life. Traditional vulnerability management workflows—manual code triage, human-written patches, slow regression testing cycles, and correlational static scanners—cannot scale with complex, evolving codebases.
+Modern software ecosystems operating in mission-critical environments require continuous, automated vulnerability management. Traditional static application security testing (SAST) and dynamic testing (DAST) tools generate overwhelming false positive rates and rely on manual human triage. 
 
-**AI Kavach** challenges participants to build a Cyber Reasoning System (CRS) that lace Large Language Models (LLMs) with fuzzers, static/dynamic analyzers, and a regression harness to autonomously discover vulnerabilities, patch them, and prove fixes hold without human intervention.
-
----
-
-## 🎯 Causal Cyber Reasoning vs. Symptom Patching
-
-Most automated patching tools perform superficial correlational fixes (e.g., masking error return values or wrapping code in try/catch blocks). **KALPA** introduces **Causal Cyber Reasoning**:
-
-1. **Reconstructing Root Causes**: Traces input taint propagation through intermediate control and data flows directly to the exploit sink.
-2. **Targeted Causal Interventions**: Synthesizes minimal code diffs that remove the true root cause while preserving 100% of legitimate system functionality.
-3. **Executable Security Contracts**: Compiles vulnerability knowledge into durable security contracts (assertions, pytest regression suites, and fuzzing oracles).
-4. **Self-Adversarial Repair Loop**: Attempts to re-exploit patched binaries using automated fuzzing and regression tests to prove fix robustness.
+**KALPA** bridges this gap by unifying static code analysis, dynamic fuzzing, Large Language Model (LLM) causal reasoning, and self-adversarial validation into an autonomous engineering pipeline. Designed to run seamlessly in cloud infrastructure, local development environments, or air-gapped networks, KALPA autonomously transforms unverified code flaws into verified, regression-tested defense patches and executable security contracts.
 
 ---
 
-## ⚡ System Architecture Overview
+## 🎯 Causal Cyber Reasoning Paradigm
+
+Most automated patching algorithms rely on superficial pattern matching—often wrapping failing calls in generic exception handlers or silencing error outputs. KALPA introduces **Causal Cyber Reasoning**:
+
+1. **Root-Cause Graphing**: Traces input taint propagation through intermediate control and data flows directly to the root-cause sink.
+2. **Causal Interventions**: Synthesizes minimal code diffs targeting the exact root cause while strictly preserving non-vulnerable system behavior.
+3. **Executable Security Contracts**: Encodes vulnerability knowledge into durable security contracts (code assertions, pytest regression suites, and memory sanitization oracles).
+4. **Self-Adversarial Loop**: Re-attacks patched binaries using dynamic fuzzing to empirically prove vulnerability elimination prior to deployment.
+
+---
+
+## ⚡ System Architecture & Engineering Loop
 
 ```
                       +------------------------------------+
@@ -91,64 +90,64 @@ Most automated patching tools perform superficial correlational fixes (e.g., mas
 
 ---
 
-## 📦 Key System Components & File Directory
+## 📦 Core Modules & Component Directory
 
-| Module | Responsibility | Key Implementation File |
+| Package / File | Description | Link |
 | :--- | :--- | :--- |
-| **Static Analyzer** | Ingest SARIF reports, AST Python analysis, C/C++ regex scan, code line-slicing | [`kalpa/static_analysis/analyzer.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/static_analysis/analyzer.py) |
-| **SARIF Parser** | Standard SARIF 2.1.0 and Bandit/Semgrep report intake | [`kalpa/static_analysis/sarif_parser.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/static_analysis/sarif_parser.py) |
-| **Dynamic Fuzzer** | Payload mutation engine, dynamic test runner, crash & sanitizer log tracer | [`kalpa/dynamic_analysis/fuzzer.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dynamic_analysis/fuzzer.py) |
-| **C Harness Generator** | AFL++/libFuzzer C harness auto-generator (`LLVMFuzzerTestOneInput`) | [`kalpa/dynamic_analysis/c_harness_generator.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dynamic_analysis/c_harness_generator.py) |
-| **POV Generator** | Confirmed Proof-of-Vulnerability payload generation | [`kalpa/dynamic_analysis/pov_generator.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dynamic_analysis/pov_generator.py) |
-| **Causal LLM Brain** | Causal narrative builder, root-cause identifier, intervention strategy ranker | [`kalpa/causal_engine/reasoner.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/causal_engine/reasoner.py) |
-| **Local LLM Provider** | Air-gapped Ollama (`/api/chat`) and vLLM (`/v1/chat/completions`) provider | [`kalpa/causal_engine/local_provider.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/causal_engine/local_provider.py) |
-| **Patch Synthesizer** | Minimal, syntactically correct code diff synthesizer (Python & C/C++ `strncpy`/`snprintf`) | [`kalpa/patching/synthesizer.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/patching/synthesizer.py) |
-| **Contract Compiler** | Translates fixes into code assertions, pytest contracts, and fuzzing oracles | [`kalpa/contract_compiler/compiler.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/contract_compiler/compiler.py) |
-| **CI/CD Exporter** | Generates GitHub Actions non-regression workflows (`.github/workflows/kalpa_contracts.yml`) | [`kalpa/contract_compiler/cicd_exporter.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/contract_compiler/cicd_exporter.py) |
-| **Orchestrator Loop** | Central controller managing intake $\to$ fuzz $\to$ patch $\to$ re-attack $\to$ accept/reject decision | [`kalpa/orchestrator/controller.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/orchestrator/controller.py) |
-| **Web Dashboard API** | FastAPI backend serving status, CRS runner, and evidence bundle endpoints | [`kalpa/dashboard/app.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dashboard/app.py) |
-| **Daemon File Watcher**| Polls files tracking `(st_mtime, st_size)` signatures to eliminate redundant re-reads | [`kalpa/utils/file_watcher.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/utils/file_watcher.py) |
+| `kalpa.static_analysis` | SARIF 2.1.0 ingestion, AST Python code slicing, C/C++ regex vulnerability discovery | [`analyzer.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/static_analysis/analyzer.py) |
+| `kalpa.dynamic_analysis` | Dynamic fuzzer, payload mutation engine, crash trace parser, POV confirmation generator | [`fuzzer.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dynamic_analysis/fuzzer.py) |
+| `kalpa.dynamic_analysis.c_harness_generator` | Standalone C `LLVMFuzzerTestOneInput` AFL++/libFuzzer harness generator | [`c_harness_generator.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dynamic_analysis/c_harness_generator.py) |
+| `kalpa.causal_engine` | Causal LLM brain, structured prompt construction, causal graph JSON generator | [`reasoner.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/causal_engine/reasoner.py) |
+| `kalpa.causal_engine.local_provider` | Native air-gapped provider for local Ollama (`/api/chat`) and vLLM (`/v1/chat/completions`) | [`local_provider.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/causal_engine/local_provider.py) |
+| `kalpa.patching` | Minimal code diff synthesizer for Python & native C/C++ targets (`strncpy`/`snprintf`) | [`synthesizer.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/patching/synthesizer.py) |
+| `kalpa.contract_compiler` | Compiles security contracts into pytest suites, code assertions, and fuzzing oracles | [`compiler.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/contract_compiler/compiler.py) |
+| `kalpa.contract_compiler.cicd_exporter` | Generates GitHub Actions workflows (`.github/workflows/kalpa_contracts.yml`) | [`cicd_exporter.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/contract_compiler/cicd_exporter.py) |
+| `kalpa.orchestrator` | Central autonomous controller orchestrating intake $\to$ fuzz $\to$ patch $\to$ re-attack $\to$ evidence | [`controller.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/orchestrator/controller.py) |
+| `kalpa.dashboard` | FastAPI server backing the interactive glassmorphism Web Operations Dashboard | [`app.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dashboard/app.py) |
+| `kalpa.utils.file_watcher` | Signature-tracked daemon file watcher maintaining `(st_mtime, st_size)` cache | [`file_watcher.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/utils/file_watcher.py) |
 
 ---
 
-## 🛠️ Feature Matrix & Core Capabilities
+## 🛠️ Feature Matrix & Technical Capabilities
 
-- 🐍 **Python Microservice Support**: Detects and patches SQL Injection, Path Traversal, Command Injection, and Auth flaws in Flask, FastAPI, and SQLAlchemy microservices.
-- ⚙️ **Native C/C++ Service Support**: Detects and remediates Buffer Overflows (`strcpy` $\to$ `strncpy`, `sprintf` $\to$ `snprintf`), format string issues, and unsafe `system()` calls under AddressSanitizer (ASan) and UndefinedBehaviorSanitizer (UBSan).
-- 🔒 **100% Air-Gapped Local LLM Inference**: Direct integration with local Ollama or vLLM inference servers (`DeepSeek-Coder`, `Llama-3`) with strict JSON schema validation.
-- 🌐 **Interactive Defense Operations Web Dashboard**: FastAPI backend with a warm off-white terracotta UI, SVG Causal Graph visualizer, real-time telemetry stream, and code diff modal inspector.
-- ⚙️ **CI/CD Security Contract Exporter**: Automatically outputs GitHub Actions workflows (`.github/workflows/kalpa_contracts.yml`) to enforce non-regression on every git commit.
-- 📜 **Strict Compliance Rules**:
-  - **SQLAlchemy ORM Read Methods**: All queries call `session.expunge_all()` before `session.close()` with `lazy="subquery"` relationships.
-  - **SQLite UTC-Naive Datetime Normalization**: Normalizes datetimes to UTC-naive at input parse layer via `normalize_to_utc_naive()` stripping `tzinfo`.
+- 🐍 **Python Microservice Remediation**: Detects and remediates SQL Injection, Path Traversal, Command Injection, and authentication bypasses in Flask, FastAPI, and SQLAlchemy microservices.
+- ⚙️ **Native C/C++ Memory Safety**: Identifies and remediates Buffer Overflows (`strcpy` $\to$ `strncpy`, `sprintf` $\to$ `snprintf`), format string bugs, and unsafe `system()` invocations under AddressSanitizer (ASan) and UndefinedBehaviorSanitizer (UBSan).
+- 🔒 **100% Air-Gapped Local LLM Support**: Direct integration with locally hosted Ollama or vLLM instances (`DeepSeek-Coder`, `Llama-3`) with strict JSON schema validation.
+- 🌐 **Interactive Operations Web Dashboard**: FastAPI backend paired with a warm off-white glassmorphism UI, interactive SVG Causal Graph visualizer, real-time log streaming, and side-by-side patch diff inspector.
+- ⚙️ **Continuous Integration Workflow Exporter**: Automated generation of ready-to-commit GitHub Actions workflows (`.github/workflows/kalpa_contracts.yml`).
+- 📜 **Strict Engineering Compliance**:
+  - **SQLAlchemy ORM Read Safety**: All ORM read methods execute `session.expunge_all()` prior to `session.close()` with `lazy="subquery"` relationship loading.
+  - **SQLite UTC-Naive Datetime Normalization**: Strips timezone offsets at parse layer via `normalize_to_utc_naive()` to eliminate runtime offset comparison errors.
   - **File-Polling Signature Cache**: Daemon file watcher tracks `(st_mtime, st_size)` in `_file_seen_signature` to prevent duplicate re-read overhead.
 
 ---
 
-## 🚀 Installation & Setup
+## 🚀 Installation
 
-### Prerequisites
-- Python 3.9 or higher
-- GCC / Clang (for native C/C++ targets)
-- Docker & Docker Compose (optional for containerized run)
-
-### Setup Steps
+### Option 1: Install via PyPI (Recommended)
 
 ```bash
-# 1. Clone repository
-git clone https://github.com/YOUR_USERNAME/kalpa.git
+pip install kalpa-crs
+```
+
+### Option 2: Install from Source
+
+```bash
+# Clone repository
+git clone https://github.com/hazlived/kalpa.git
 cd kalpa
 
-# 2. Install dependencies
-pip install -r requirements.txt
+# Install in editable mode with dependencies
+pip install -e .
 ```
 
 ---
 
-## 📖 Comprehensive Usage Manual
+## 📖 Comprehensive Usage Guide
 
-### 1. Single-Command CLI Execution
-Run KALPA autonomously against any target codebase (Python microservice or C/C++ service):
+### 1. Command Line Interface (CLI)
+
+Run KALPA autonomously against any codebase:
 
 ```bash
 python run_kalpa.py --target targets/vulnerable_service --output-dir evidence_bundles
@@ -157,7 +156,8 @@ python run_kalpa.py --target targets/vulnerable_service --output-dir evidence_bu
 ---
 
 ### 2. Air-Gapped Local LLM Execution (Ollama / vLLM)
-To execute KALPA in classified defense networks using a locally hosted LLM without internet connectivity:
+
+Execute KALPA in isolated networks using a locally hosted LLM model:
 
 ```bash
 python run_kalpa.py --target targets/vulnerable_service --provider ollama --ollama-host http://localhost:11434 --model deepseek-coder
@@ -166,24 +166,26 @@ python run_kalpa.py --target targets/vulnerable_service --provider ollama --olla
 ---
 
 ### 3. Interactive Defense Operations Web Dashboard
-Launch the FastAPI web dashboard server:
+
+Launch the web dashboard server:
 
 ```bash
 python run_kalpa.py --dashboard
 ```
 
-Open your browser at **`http://127.0.0.1:8000`** to access the warm off-white terracotta dashboard featuring interactive SVG Causal Graph rendering, real-time log streaming, and side-by-side patch diff inspection.
+Navigate to **`http://127.0.0.1:8000`** to access the operations dashboard featuring real-time status tracking, interactive SVG Causal Graph visualization, target microservice execution triggers, and code diff modal inspection.
 
 ---
 
-### 4. Docker Container Deployment
-Run KALPA inside an air-gapped Docker container:
+### 4. Containerized Docker Deployment
+
+Run KALPA within a containerized environment:
 
 ```bash
-# Build container image
+# Build Docker image
 docker build -t kalpa-crs .
 
-# Run autonomous loop
+# Run container
 docker run --rm -v $(pwd)/evidence_bundles:/app/evidence_bundles kalpa-crs --target targets/vulnerable_service
 ```
 
@@ -195,67 +197,56 @@ docker-compose up --build
 
 ---
 
-### 5. AI Kavach Evaluation Suite
-Benchmark KALPA across all target codebases to compute AI Kavach performance metrics:
+### 5. CI/CD Security Contract Exporter
 
-```bash
-python eval_kalpa.py --targets-dir targets --output eval_report.json
-```
-
-Outputs machine-readable `eval_report.json` and human-readable `eval_report.md`.
-
----
-
-### 6. CI/CD Security Contract Exporter
-Export ready-to-commit GitHub Actions workflows:
+Export GitHub Actions workflows to enforce non-regression on every git push:
 
 ```bash
 python run_kalpa.py --target targets/vulnerable_service --export-cicd
 ```
 
-Creates `.github/workflows/kalpa_contracts.yml` to automatically verify security contracts on git push.
+Generates `.github/workflows/kalpa_contracts.yml`.
 
 ---
 
-## ⚙️ Configuration & Environment Variables
+### 6. Benchmark & Evaluation Suite
 
-| Variable | Description | Default Value |
-| :--- | :--- | :--- |
-| `LLM_PROVIDER` | Reasoning provider mode (`auto`, `openai`, `ollama`, `vllm`, `rule_based`) | `auto` |
-| `LLM_MODEL` | Remote LLM model name | `gpt-4o` |
-| `LLM_API_KEY` | Remote API Key (OpenAI / Anthropic) | `None` |
-| `OLLAMA_HOST` | Local Ollama / vLLM endpoint URL | `http://localhost:11434` |
-| `LOCAL_MODEL` | Local LLM model name | `deepseek-coder` |
-| `MAX_FUZZ_TIME` | Maximum fuzzing budget per vulnerability (seconds) | `30` |
+Execute the benchmark evaluator across all target services:
+
+```bash
+python eval_kalpa.py --targets-dir targets --output eval_report.json
+```
+
+Outputs machine-readable `eval_report.json` detailing Patch Success Rate (PSR), Mean Time to Repair (MTTR), and system resource usage.
+
+---
+
+## ⚙️ Configuration Reference
+
+| Parameter / Variable | CLI Flag | Description | Default |
+| :--- | :--- | :--- | :--- |
+| `LLM_PROVIDER` | `--provider` | Reasoning provider mode (`auto`, `openai`, `ollama`, `vllm`, `rule_based`) | `auto` |
+| `LLM_MODEL` | `--model` | Model name for remote or local provider | `gpt-4o` / `deepseek-coder` |
+| `OLLAMA_HOST` | `--ollama-host` | URL endpoint for local Ollama or vLLM server | `http://localhost:11434` |
+| `MAX_FUZZ_TIME` | `--max-fuzz-seconds` | Maximum fuzzing budget per target vulnerability (seconds) | `30` |
+| `OUTPUT_DIR` | `--output-dir` | Target directory for generated evidence bundles | `evidence_bundles` |
 
 ---
 
 ## 🛡️ Auditable Evidence Bundle Specification
 
-Every fix processed by KALPA exports an auditable Evidence Bundle to `evidence_bundles/<VULN_ID>/`:
+For every processed vulnerability, KALPA outputs an auditable Evidence Bundle to `evidence_bundles/<VULN_ID>/`:
 
-- `evidence_bundle.json`: Complete machine-readable findings, causal explanation, and metrics.
-- `causal_explanation.md`: Causal narrative detailing root cause and taint path.
-- `patch.diff`: Unified code diff.
-- `test_contract_*.py`: Executable pytest security contract.
-
----
-
-## 📊 Benchmark Results & Performance Indicators
-
-Evaluated using `eval_kalpa.py` across benchmark targets:
-
-| Target Service | Language | Found | Fixed | Patch Success Rate (PSR) | MTTR (s) |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| `vulnerable_service` | Python (Flask/SQLAlchemy) | 2 | 2 | **100.0%** | **2.51s** |
-| `vulnerable_cpp_service` | C/C++ (GCC/ASan) | 4 | 2 | **50.0%** | **2.26s** |
-| **TOTAL BENCHMARK** | **Multi-Language** | **6** | **4** | **66.7%** | **2.42s** |
+- `evidence_bundle.json`: Structured machine-readable findings, causal graph, patch outcome, and execution metrics.
+- `causal_explanation.md`: Human-readable technical markdown report detailing the vulnerability root cause and taint propagation path.
+- `patch.diff`: Standard unified diff ready for application via `git apply`.
+- `test_contract_*.py`: Executable pytest contract verifying vulnerability non-regression.
 
 ---
 
-## 🔬 Testing & Verification
+## 🔬 Verification & Testing
 
-Run the full framework unit and integration test suite (100% pass rate):
+Execute the full framework test suite:
 
 ```bash
 python -m unittest discover -s tests -p "test_*.py"
@@ -263,8 +254,6 @@ python -m unittest discover -s tests -p "test_*.py"
 
 ---
 
-## 📑 Project Documentation & Audit Dossier
+## 📜 License
 
-- 📄 [**AI Kavach Grand Finale Technical Deliverables & Audit Dossier**](FINAL_DELIVERABLES.md)
-- 📜 [**Changelog & Release Notes**](CHANGELOG.md)
-- ⚖️ [**License & Terms**](LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

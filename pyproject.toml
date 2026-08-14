@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "kalpa-crs"
 version = "2.0.0"
-description = "Causal Cyber Reasoning System for AI Kavach"
+description = "Autonomous Causal Cyber Reasoning System (CRS)"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
