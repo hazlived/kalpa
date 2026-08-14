@@ -5,6 +5,12 @@ All notable changes to the KALPA framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2026-08-15
+
+### Documentation & Packaging Refinement
+- **Zero-Emoji Professional Documentation**: Completely overhauled [`README.md`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/README.md) to eliminate all emojis, utilizing clean markdown formatting, technical diagrams, and comprehensive architectural specification tables.
+- **PyPI Release Build**: Prepared production wheels and sdist packages for `kalpa-crs` v2.0.1.
+
 ## [2.0.0] - 2026-08-14
 
 ### Grand Finale Release
