@@ -5,6 +5,21 @@ All notable changes to the KALPA framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-08-14
+
+### Refactored & Enhanced
+- **Emoji Replacement**: Replaced all emojis across the Web Dashboard interface with crisp vector SVG icons and sleek geometric symbols.
+- **Warm Off-White & Terracotta Palette**: Redesigned theme in [`style.css`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dashboard/static/style.css) to warm off-white parchment background (`#f6f3ee`), espresso dark brown typography (`#2b211b`), copper burnt orange accents (`#ea580c`), and bronze borders.
+- **100% Fully Functional UI Interactivity**: Made all sub-nav tabs, filter buttons, CRS trigger runner, modal tabs, and refresh actions fully interactive in [`app.js`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dashboard/static/app.js).
+
+## [1.4.0] - 2026-08-14
+
+### Added
+- **Ultra-Premium Defense Operations UI Redesign**: Rebuilt [`index.html`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dashboard/static/index.html) and [`style.css`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dashboard/static/style.css) with a futuristic dark glassmorphism theme (`#070913`), HSL-tailored cyan/emerald/purple glows, typography stack (`Outfit`, `Inter`, `JetBrains Mono`), animated background mesh glow, and card hover tilt.
+- **Interactive SVG Causal Node Renderer**: Enhanced [`app.js`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/dashboard/static/app.js) to dynamically plot color-coded SVG nodes (Input $\to$ Flow $\to$ Root Cause Sink) with animated connection arrows.
+- **Live Defense Telemetry Feed**: Real-time terminal log feed with cyan, emerald, and rose status line highlights.
+- **Code Diff & Security Contract Inspector Modal**: Side-by-side modal rendering synthesized patch diffs with green (`+`) and red (`-`) syntax line highlighting.
+
 ## [1.3.0] - 2026-08-14
 
 ### Added

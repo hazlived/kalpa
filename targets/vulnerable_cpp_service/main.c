@@ -14,7 +14,8 @@ void execute_utility(const char* arg_str) {
     char cmd[128];
     /* KALPA Security Contract Assertion */
     // VULNERABLE FUNCTION (Command Injection): Unsafe sprintf + system()
-    sprintf(cmd, "echo %s", arg_str);
+    /* KALPA Security Patch: Safe snprintf */
+    snprintf(cmd, sizeof(cmd), "echo %s", arg_str);
     system(cmd);
 }
 

@@ -1,30 +1,30 @@
 {
-  "evaluation_timestamp": "2026-08-14T16:41:42",
+  "evaluation_timestamp": "2026-08-14T17:50:05",
   "total_targets_evaluated": 2,
-  "total_vulnerabilities_found": 6,
-  "total_vulnerabilities_fixed": 4,
-  "patch_success_rate_percent": 66.67,
-  "mean_time_to_repair_seconds": 2.77,
-  "total_evaluation_time_seconds": 16.61,
+  "total_vulnerabilities_found": 5,
+  "total_vulnerabilities_fixed": 3,
+  "patch_success_rate_percent": 60.0,
+  "mean_time_to_repair_seconds": 3.01,
+  "total_evaluation_time_seconds": 15.07,
   "resource_efficiency": {
-    "total_llm_calls": 13,
+    "total_llm_calls": 9,
     "total_llm_tokens": 0,
     "avg_tokens_per_fix": 0.0
   },
   "target_breakdown": [
     {
       "target_name": "vulnerable_cpp_service",
-      "vulnerabilities_found": 4,
-      "vulnerabilities_fixed": 2,
-      "patch_success_rate": 50.0,
-      "duration_seconds": 2.26
+      "vulnerabilities_found": 3,
+      "vulnerabilities_fixed": 1,
+      "patch_success_rate": 33.33333333333333,
+      "duration_seconds": 1.87
     },
     {
       "target_name": "vulnerable_service",
       "vulnerabilities_found": 2,
       "vulnerabilities_fixed": 2,
       "patch_success_rate": 100.0,
-      "duration_seconds": 14.34
+      "duration_seconds": 13.19
     }
   ]
 }
