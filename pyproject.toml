@@ -7,6 +7,33 @@ name = "kalpa-crs"
 version = "2.0.1"
 description = "Autonomous Causal Cyber Reasoning System (CRS)"
 readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "hazlived", email = "haziq@example.com" }
+]
+keywords = [
+    "cyber-reasoning",
+    "vulnerability-repair",
+    "security",
+    "causal-ai",
+    "fuzzing",
+    "autofix",
+    "sast",
+    "dast"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Topic :: Security",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12"
+]
 requires-python = ">=3.9"
 dependencies = [
     "sqlalchemy>=2.0.0",
@@ -15,6 +42,13 @@ dependencies = [
     "uvicorn>=0.20.0",
     "pydantic>=1.10.0"
 ]
+
+[project.urls]
+Homepage = "https://github.com/hazlived/kalpa"
+Repository = "https://github.com/hazlived/kalpa.git"
+Issues = "https://github.com/hazlived/kalpa/issues"
+Changelog = "https://github.com/hazlived/kalpa/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/hazlived/kalpa#readme"
 
 [tool.setuptools.packages.find]
 include = ["kalpa*"]
