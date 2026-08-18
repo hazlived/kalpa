@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kalpa-crs"
-version = "2.0.2"
+version = "2.0.3"
 description = "Autonomous Causal Cyber Reasoning System (CRS)"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -28,6 +28,9 @@ dependencies = [
     "pydantic>=1.10.0"
 ]
 
+[project.scripts]
+kalpa = "kalpa.cli:main"
+
 [project.urls]
 Homepage = "https://github.com/hazlived/kalpa"
 Repository = "https://github.com/hazlived/kalpa.git"
@@ -36,6 +39,9 @@ Changelog = "https://github.com/hazlived/kalpa/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 include = ["kalpa*"]
+
+[tool.setuptools.package-data]
+"kalpa.dashboard" = ["static/*", "static/**/*"]
 
 [tool.pytest.ini_options]
 minversion = "7.0"

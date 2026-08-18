@@ -39,3 +39,5 @@ ENV/
 # KALPA Generated Execution Output & Evidence Bundles
 evidence_bundles/
 *.log
+targets/**/tests/test_contract_*.py
+

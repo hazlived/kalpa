@@ -5,6 +5,11 @@ All notable changes to the KALPA framework will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.3] - 2026-08-17
+
+### Added
+- **Global `kalpa` Terminal Command**: Configured `[project.scripts]` in [`pyproject.toml`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/pyproject.toml) and added [`kalpa/cli.py`](file:///c:/Users/haziq/OneDrive/Documents/projects/kalpa/kalpa/cli.py). Running `pip install kalpa-crs` now provisions a global `kalpa` command line binary executable.
+
 ## [2.0.2] - 2026-08-15
 
 ### PyPI Metadata & Sidebar Release
